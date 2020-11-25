@@ -3,6 +3,7 @@ import { Cards, Chart, CountryPicker } from "./Components";
 import styles from "./App.module.css";
 import { fetchData } from "./api";
 import coronaImage from "./images/image.png";
+import Footer from "./Components/Footer/Footer";
 
 class App extends React.Component {
   state = {
@@ -24,17 +25,18 @@ class App extends React.Component {
         <img className={styles.image} src={coronaImage} alt="COVID-19" />
         <br />
         <text>
-          <b>Global and Country Wise Cases of Corona Virus</b>
+          <b>Global and Country cases of Corona Virus</b>
         </text>
         <br />
         <text>
-          <i>(For a particular select a Country from below)</i>
+          <i>(For a Particular country, select a Country from below)</i>
         </text>
         <br />
         <br />
-        <Cards data={data} country={country} />
         <CountryPicker handleCountryChange={this.handleCountryChange} />
+        <Cards data={data} country={country} />
         <Chart data={data} country={country} />
+        <Footer />
       </div>
     );
   }
